@@ -23,6 +23,22 @@ do {
 
 
     switch (menu) {
+        case 1:
+            newCar();
+            break;
+
+        case 2:
+            listCars();
+            break;
+
+        case 3:
+            filterCar();
+            break;
+
+        case 4:
+            updateCar();
+            break;
+
         case 6:
             continuar = false;
             break;
@@ -38,11 +54,56 @@ do {
 } while (continuar)
 
 
+// Função para adicionar novo carro.
+
+function newCar() {
+    const car = {
+        id: cars.length + 1,
+        modelo: "Civic",
+        marca: "Honda",
+        ano: 2020,
+        cor: "Preto",
+        preco: 43000
+    }
+    cars.push(car);
+    alert(`Carro ${car.marca} ${car.modelo} cadastrado com sucesso!`);
+
+}
+
+// Função para listar os carros:
+
+function listCars() {
+    cars.forEach(function (car) {
+        alert(`ID: ${car.id} | Modelo: ${car.modelo} | Marca: ${car.marca} | Ano: ${car.ano} | Cor: ${car.cor} | Preço: ${car.preco}`);
+    })
 
 
+}
+
+// Função para filtrar veiculos por marca:
+
+function filterCar() {
+    const findCar = cars.filter(car => car.marca.includes("Honda"));
 
 
+    findCar.forEach(function (car) {
+        alert(`ID: ${car.id} | Modelo: ${car.modelo} | Cor: ${car.cor} | Preço: ${car.preco}`);
 
+    })
+};
+
+// Atualizar veículo:
+
+function updateCar() {
+
+    const findCar = cars.findIndex(car => car.id === 1);
+
+    cars[findCar].cor = "Rosa Barbie";
+    cars[findCar].preco = 33333;
+    alert(`Carro atualizado com sucesso!`);
+
+
+}
 
 
 /*
