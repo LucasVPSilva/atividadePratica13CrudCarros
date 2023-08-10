@@ -3,7 +3,6 @@
 const cars = [];
 
 
-
 // Menu inicial do CRUD de Carros: 
 
 let exitMenu = true;
@@ -62,12 +61,11 @@ do {
 
 function newCar() {
     const car = {
-        id: cars.length + 1,
-        modelo: "Civic",
-        marca: "Honda",
-        ano: 2020,
-        cor: "Preto",
-        preco: 43000
+        modelo: prompt('Informe o modelo do carro'),
+        marca: prompt('Informe a marca do carro'),
+        ano: Number(prompt('Informe o ano do carro')),
+        cor: prompt('Informe a cor do carro'),
+        preco: Number(prompt('Informe o preço do carro')),
     }
     cars.push(car);
     alert(`Carro ${car.marca} ${car.modelo} cadastrado com sucesso!`);
@@ -110,7 +108,7 @@ function filterCar() {
 
 function updateCar() {
     const identify = Number(prompt('Informe o identificador do veículo:'));
-    const findCar = carros.findIndex(carro => carro.id === identify);
+    const findCar = cars.findIndex(carro => carro.id === identify);
     if (findCar === -1) {
         alert('Veículo, não encontrado! Favor voltar para o menu inicial!');
     } else {
@@ -152,3 +150,4 @@ function exitCrud() {
     }
 
 }
+
